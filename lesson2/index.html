@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function init() {
+            console.log('This only runs after the page has loaded');
+        }
+
+        function sayHello() {
+
+            console.log("Saying hello");
+
+            let element = document.getElementById("mainHeading");
+            element.innerHTML = "Hello World, from a function";
+
+            element = document.getElementById("messagePanel");
+            element.innerHTML = "<div id='messagePanel2'>Hello World</div>";
+
+            element = document.getElementById("demo");
+            element.innerHTML = "text goes here";
+
+        }
+
+        function writeList() {
+
+            let rainbow = ["Red", "Green", "Orange", "Yellow", "Violet"];
+
+            let htmlString = "<ol>";
+            for (const colour of rainbow) {
+                htmlString += `<li>${colour}</li>`;
+            }
+
+            htmlString += "</ol>";
+
+            let element = document.getElementById("messagePanel");
+
+            element.innerHTML = htmlString;
+        }
+
+
+        function getName() {
+
+            let element = document.getElementById("tbYourName"); // input field
+
+            let contentsOfInput = element.value; // input field has value NOT innerHTML
+
+            // Then we write out to the message panel
+            let messagePanel =  document.getElementById("messagePanel");
+
+            messagePanel.innerHTML = contentsOfInput;
+        }
+
+
+    </script>
+
+    <style>
+        #messagePanel {
+            width: 600px;
+
+            border: solid 1px red;
+            padding: 25px;
+        }
+
+
+        #messagePanel2 {
+            width: 300px;
+
+            border: solid 1px blue;
+            padding: 25px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body onload="init()">
+    <h1 id="mainHeading"> </h1>
+    <p id="demo"></p>
+    <div id="messagePanel">
+        This is the message Panel
+    </div>
+
+    <input type="text" value="" id="tbYourName" />
+    <button onClick="sayHello()"> Say Hello </button>
+    <button onClick="writeList()"> Write List </button>
+    <button onClick="getName()"> Get Name </button>
+
+
+</body>
+
+</html>
